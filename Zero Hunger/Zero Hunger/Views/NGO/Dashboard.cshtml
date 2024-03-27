@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "Dashboard";
+}
+<style>
+    .background-section2 {
+        background-image: url('https://i.ibb.co/k6HB0sx/Orange-and-Green-Colorful-Illustrative-Zero-Waste-Presentation-3.jpg');
+        background-size: cover;
+        height: 100vh;
+    }
+    #create, #edit {
+        font-weight: bold;
+        color: green;
+        font-size: 2rem;
+        margin-right:20px;
+    }
+</style>
+
+<div class="background-section2">
+    <a href="@Url.Action("createAdmin", "Auth")"><span id="create" >Create Admin</span></a>
+    <a href="@Url.Action("EditProfile", "NGO")"><span id="edit">Edit Profile</span></a>
+</div>

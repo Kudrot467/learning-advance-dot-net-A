@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "ShowAllEmployee";
+}
+
+
+<h2>ShowAllEmployee</h2>
+
+<div>
+    <table class="table table-bordered">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+        </tr>
+        @foreach(var employee in ViewBag.employees)
+         {
+            <tr>
+                <td>@employee.Id</td>
+                <td>@employee.Name</td>
+            </tr>
+         }
+    </table>
+</div>

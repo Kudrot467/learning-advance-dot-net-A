@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Zero Hunger",
+    "\\Zero Hunger\\Models",
+    "\\Zero Hunger\\Models\\EF",
+    "\\Zero Hunger\\Views",
+    "\\Zero Hunger\\Views\\Auth",
+    "\\Zero Hunger\\Views\\Home",
+    "\\Zero Hunger\\Views\\NGO",
+    "\\Zero Hunger\\Views\\Shared"
+  ],
+  "SelectedNode": "\\Zero Hunger\\Views\\Home\\Index.cshtml",
+  "PreviewInSolutionExplorer": false
+}

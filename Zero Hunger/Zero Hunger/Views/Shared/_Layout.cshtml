@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Zero Hunger</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+  
+    <div class="navbar navbar-fixed-top bg-success">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" title="more options">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                 @Html.ActionLink("Zero Hunger", "Index", "Home", new { area = "" }, new { @class = "navbar-brand text-white fw-bold" })
+            </div>
+            <div class="navbar-collapse collapse">
+                @if (Session["Username"]==null)
+                {
+
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                        <li>@Html.ActionLink("Start Journey as a Benefactor", "BenefactorRegistration", "Auth", new { area = "" }, new { @class = "nav-link" })</li>
+                        <li>@Html.ActionLink("Login", "Login", "Auth", new { area = "" }, new { @class = "nav-link" })</li>
+                    </ul>
+                }
+                else
+                {
+
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                @if (Session["Access"].ToString() == "NGO")
+                {
+                    <li>@Html.ActionLink("Dashboard", "Dashboard", "NGO", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Food Collection", "FoodCollection", "NGO", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("All Employee", "ShowAllEmployee", "NGO", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Hire Employee", "HireEmployee", "NGO", new { area = "" }, new { @class = "nav-link" })</li>
+                }
+                else
+                {
+                    <li>@Html.ActionLink("Dashboard", "Dashboard", "Benefactor", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Edit Profile", "EditProfile", "Benefactor", new { area = "" }, new { @class = "nav-link" })</li>
+                }
+                <li>@Html.ActionLink("Logout", "Logout", "Auth", new { area = "" }, new { @class = "nav-link" })</li>
+            </ul>
+                }
+            </div>
+           
+        </div>
+        <div>
+           
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Zero Hunger</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

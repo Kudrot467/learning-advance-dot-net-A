@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "Dashboard";
+}
+<style>
+    .background-section {
+        background-image: url('https://i.ibb.co/SBYmrbx/istockphoto-619643870-612x612.jpg');
+        background-size: cover;
+        background-position: center;
+    }
+    .background-section2 {
+        background-image: url('https://i.ibb.co/Z1H3j4L/Orange-and-Green-Colorful-Illustrative-Zero-Waste-Presentation-2.jpg');
+        background-size: cover;
+        height:100vh;
+    }
+     #collection,#donation
+    {
+        font-weight: bold;
+        color: white;
+        font-size: 2rem; 
+    }
+        #collection:hover,#donation:hover {
+            color: forestgreen;
+        }
+</style>
+<h2 class="text-success fs-1">Benefactor Dashboard</h2>
+
+<div >
+    <div class="background-section">
+        <h3 class="text-danger ">User: @ViewBag.Username</h3>
+        <h3><a href="@Url.Action("CollectionRequest", "Benefactor")"><span  id="collection">Upload for Collection</span></a></h3>
+       <a href="@Url.Action("DonationHistory", "Benefactor")">
+                              <span  id="donation"> Donation History</span></a>
+    </div>
+    <div class="background-section2">
+       
+    </div>
+</div>
+

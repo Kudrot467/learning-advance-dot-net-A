@@ -1,0 +1,86 @@
+﻿
+@{
+    ViewBag.Title = "FoodCollection";
+}
+<style>
+    .background-section2 {
+        background-image: url('https://i.ibb.co/vh3fMMH/Food-Collection-History.png');
+        background-size: cover;
+        height: 100vh;
+    }
+    .title{
+        color:aliceblue;
+        font-weight:800;
+        font-size:24px;
+    }
+    .des {
+        color: olivedrab;
+        font-size: 20px;
+        font-weight:700;
+    }
+    #emp{
+        color:olive;
+        font-weight:600;
+        font-size:20px;
+    }
+    .sts {
+        color: brown;
+        font-size: 20px;
+        font-weight: 700;
+    }
+</style>
+
+<table class="table table-bordered background-section2">
+    <tr>
+        <th class="title">Donation Meals</th>
+        <th class="title">Uplaod Time</th>
+        <th class="title">Expire Time</th>
+        <th class="title">Collection Time</th>
+        <th class="title">Amount(Kg/s)</th>
+        <th class="title">Status</th>
+        <th class="title">Collector ID</th>
+        <th class="title">Assign Employee</th>
+    </tr>
+    @foreach (var item in ViewBag.foodList)
+     {
+        <tr>
+            <th class="des">@item.Name</th>
+            <th  class="des">@item.UploadDate</th>
+            <th  class="des">@item.ExpireTime</th>
+            @if (item.CompleteTime == null)
+            {
+                <th>-</th>
+            }
+            else
+            {
+                <th  class="des">@item.CompleteTime</th>
+            }
+            <th class="des">@item.Amount</th>
+            <th  class="sts">@item.StatusName</th>
+            @if (item.AssignedTo == null)
+            {
+                <th>-</th>
+            }
+            else
+            {
+                <th  class="sts">@item.AssignedTo</th>
+            }
+            @if(item.StatusName == "Pending")
+            {
+                <th>
+                    <form action="/NGO/assignEmployee" method="post">
+                        <input type="hidden" name="id" value="@item.Id" />
+                        <select name="employee">
+                            @foreach (var employee in ViewBag.employees)
+                            {
+                                <option id="emp" value="@employee.Id">@employee.Name</option>
+                            }
+                        </select>
+                        <input type="submit" name="Accept" value="Accept" class="btn btn-success" />
+                    </form>
+                </th>
+                
+            }
+        </tr>
+     }
+</table>
